@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "nodejsapivision",
+  "private_key_id": "81433ad5f0b82d1ba68ae21b837057622e5fed45",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCsrI6NlWFXRhN+\nliUD/kLsEY9SeUYO9ToEBdIcwHILm//YKpei8Q0CALq2LPT15WgOwtdNo4g5IhfS\nwZ7/i7BLbRc6fZFUHfeHVCOHdrS5E/Du6KpwaHwPketxq0sYFnFgmUsuJi8QDoEM\nL8Rvo70YH2QZP/0xz57Gm2RpFyyq6MBArGawgXmaXikTuS4v+rj3PMSjN5bm9uOw\nOyjBNUGjnhk0a+u3GKu5Wq9OWQPT+e6LL8iA2HUL+oUFuMNObJSGf0//xLYR5lub\nGovEkNcg8fWkCkpgjeqmX3Lg46/SyETRx4nnidxfNc+C4Fz12YE+KW5knr14rJ9L\ntDPoXoCfAgMBAAECgf8jaT/SyU+tFjHpQ+FTcFFJGFDMGRLE/oVnTcpJGy5IMzXE\nnvd58vU38+5WbeHOi71LSandwiuti9BW6F4zCfKdhUG+PQIQvhSFLDwdC7sEOZKv\nbAeIBeVrTAF8ziQYTIHzzXwdercsE81jMmiWfH3K9KUSiIzkKi/liviMlLQUWFDY\n0tEvByXCGMpA8yWw+f4nj4QOyrfvlR+q1gmSNmePSo0Id021GtCAp3UooDl+fQfP\nQdKCjoyo1UDWaW7HwQTN1yn3jW9xzg2NG7IQaXVdzT6F90k56ABMyseymKeRU/pm\n1wRd7gUmUwU7lEnwwfj5EJP53vl9imtuHXwtq10CgYEA0kObs4Y+/kIBPmNJjchm\n9EdEuE0v8QX2WKKWnqcec31r99m5/UfGE3Cs5tMRAZJ7FOoK9FwMSSw+Ui3F/owP\n6cun6GvCj9C6Bick8FbobUwltT1LHOUhJ3iHdtgp4hmD4qO2yr3iLrlDS2H0BE2b\n9NTmKqHBJbJ2Ms0Ry+KHRa0CgYEA0jvGwcItXLFhjsU1mGb5RURurxx0A9qoezTZ\nLegbzNJYma2B91djjgIgkVFtJj4E00zYmsPc8r4sxrxS+XXe3aWVu2mBaBj+BbKQ\ncSP9ovz6CS2lSc1h5r6zBdYg7J6IbUAE88rUHWnA7LBI44hRejhRpRYCZ7Ax/HwG\nyB138PsCgYEApHfrz6Y/meSJUoKZY0URexxQHZWK3Y4bXsN264yvXgkKLinpuLuu\nrUAijr8ke0VX70kO3osttQLdkKxrRivKusbphPzdiF7tU6jE1RY14mCA0l6qZWS4\n5UX7ODPntwrcRahnb/jNdlzFza5GECOgzQbHLyutiE4q9JvBwuhjhVUCgYEAt9Uz\ncJx2BBbLowdJXVG16N71FkSAIhqittG4kw7iuFC6zu7MtdcBo9yyU7/q/MTAfXA1\n++cHHnAzQTjOKXrrfc9cRfv0/2zTO3IwIe8By/MARORYI1fnotjgPFtIgQADddzE\nN9YFcw7Vd2KS6ft6m7ABnKTJR5fnrctaNsSl698CgYEAmOnSNvdrxookDEX40cHe\nUDQMUEJDAWrNk2qV89VJcmDodXbsPYCIoEvOISYrIEvz+dmsSFkP7n82RBMGS3hp\nBgjnkxWXm9KmMZQQpEHr6N1/t71kWHuToOHwLrfbJFB8Pl0DaRjK5c5LsuoWWx9r\ndZ4OhBnq/pYYDvj2DjlVmlA=\n-----END PRIVATE KEY-----\n",
+  "client_email": "google-vision-api@nodejsapivision.iam.gserviceaccount.com",
+  "client_id": "102790005099917102511",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/google-vision-api%40nodejsapivision.iam.gserviceaccount.com"
+}
