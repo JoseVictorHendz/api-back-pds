@@ -1,23 +1,36 @@
-exports.imageDate = ((req, res) => {
+// const express = require('express')
+// exports.imageDate = () => {
+//     return 'top'
+// };
+
+// var async = require('asyncawait/async');
+// var await = require('asyncawait/await');
+
+
+const express = require('express')
+
+exports.imageDate = (async (req, res) => {
     // Imports the Google Cloud client library
     const vision = require('@google-cloud/vision');
 
     // Creates a client
     const client = new vision.ImageAnnotatorClient({
-        keyFilename: './keyApi.json'
+        keyFilename: './src/Apis/google-cloud-vision/keyApi.json'
     })
 
-    // Performs label detection on the image file
-    client
-        .labelDetection("./image.jpg")
+
+    // Performs label d etection on the image file
+    await client
+        .labelDetection("./src/Apis/google-cloud-vision/image.jpg")
         .then(results => {
             const labels = results[0].labelAnnotations;
 
-            console.log('Labels:');
-            return labels.forEach(label => console.log(label.description));
+            let date = []
+
+            labels.forEach(label => date.push(label.description))
+            console.log(date)
         })
         .catch(err => {
             console.error('ERROR:', err);
         });
-
 });
