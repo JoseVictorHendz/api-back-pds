@@ -4,7 +4,7 @@ const express = require('express');
 const router = express.Router();
 const controller = require('../Controllers/image-detection-controller');
 
-router.post('/image-recognition', controller.imageRecognition);
-router.post('/image-recognition-color', controller.imageRecognitionColors)
+router.post('/image-label-detection', controller.imageLabelDetection);
+router.post('/image-properties-detection', controller.imagePropertiesDetection)
 
 module.exports = router;

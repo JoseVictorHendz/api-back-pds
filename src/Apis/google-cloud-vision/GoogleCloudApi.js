@@ -10,13 +10,13 @@ function createClient() {
 }
 
 function imageLocation() {
-    return "./src/Apis/google-cloud-vision/image.jpg"
+    return "./src/Apis/google-cloud-vision/color.jpg"
 }
 
-exports.imageDate = (async () => {
+exports.labelDetection = (async () => {
     const client = createClient()
 
-    let date = []
+    let data = []
 
     // Performs label d etection on the image file
     await client
@@ -24,30 +24,30 @@ exports.imageDate = (async () => {
         .then(results => {
             const labels = results[0].labelAnnotations;
 
-            labels.forEach(label => date.push(label))
+            labels.forEach(label => data.push(label))
 
         })
         .catch(err => {
             console.error('ERROR:', err);
         });
-    return date
+    return data
 });
 
-exports.imageColors = (async () => {
+exports.imageProperties = (async () => {
     // Creates a client
     const client = createClient()
 
-    let date = []
+    let data = []
 
     await client
         .imageProperties(imageLocation())
         .then(results => {
             const properties = results[0].imagePropertiesAnnotation;
             const colors = properties.dominantColors.colors;
-            colors.forEach(color => date.push(color));
+            colors.forEach(color => data.push(color));
         })
         .catch(err => {
             console.error('ERROR:', err);
         });
-    return date
+    return data
 })
