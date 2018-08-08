@@ -10,7 +10,7 @@ function createClient() {
 }
 
 function imageLocation() {
-    return "./src/Apis/google-cloud-vision/color.jpg"
+    return "./src/Apis/google-cloud-vision/image.jpg"
 }
 
 exports.labelDetection = (async () => {
@@ -45,6 +45,27 @@ exports.imageProperties = (async () => {
             const properties = results[0].imagePropertiesAnnotation;
             const colors = properties.dominantColors.colors;
             colors.forEach(color => data.push(color));
+        })
+        .catch(err => {
+            console.error('ERROR:', err);
+        });
+    return data
+})
+
+exports.imageDocumentTextDetection = (async () => {
+    // Creates a client
+    const client = createClient()
+
+    let data = []
+
+    await client
+        .documentTextDetection(imageLocation())
+        .then(results => {
+            const fullTextAnnotation = results[0].fullTextAnnotation;
+            //  data.push(fullTextAnnotation.pages);
+            // data.push(fullTextAnnotation.pages);
+            data.push(fullTextAnnotation.text);
+
         })
         .catch(err => {
             console.error('ERROR:', err);

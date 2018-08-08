@@ -11,3 +11,8 @@ exports.imagePropertiesDetection = async (req, res, next) => {
   const data = await api.imageProperties()
   res.json(data);
 }
+
+exports.imageDocumentTextDetection = async (req, res, next) => {
+  const data = await api.imageDocumentTextDetection()
+  res.json(data)
+}
