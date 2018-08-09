@@ -10,7 +10,7 @@ function createClient() {
 }
 
 function imageLocation() {
-    return "./src/Apis/google-cloud-vision/image.jpg"
+    return "./src/Apis/google-cloud-vision/q.jpg"
 }
 
 exports.labelDetection = (async () => {
