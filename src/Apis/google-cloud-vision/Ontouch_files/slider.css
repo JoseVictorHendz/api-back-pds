@@ -1,0 +1,32 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Slideshow container */
+[slider] {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  background: black;
+  justify-content: center;
+  overflow: hidden;
+  height: 100%;
+}
+
+[slide] {
+  width: auto;
+  height: 100%;
+  display: none;
+}
+
+[slide] img {
+  height: 100%;
+}
+
+[slide].active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

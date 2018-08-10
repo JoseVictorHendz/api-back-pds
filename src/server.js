@@ -1,10 +1,10 @@
 const express = require('express')
-const app = express()
+const server = express()
 
-app.use("/", require("./Routes"))
+server.use("/", require("./Routes"))
 
-app.listen(process.env.PORT || 3000, () => {
+server.listen(process.env.PORT || 3000, () => {
     console.log("Server listening in port 3000\nCtrl + c quit")
 })
 
-module.exports = app;
+module.exports = server;
