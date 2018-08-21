@@ -1,20 +1,20 @@
 const api = require('../Apis/google-cloud-translate/google-cloud-translate')
-const express = require('express');
 
 exports.sentanceTranslation = async (req, res, next) => {
-  const text = req.params._text;
-  const target = req.params._target;
+  const _text = req.params._text;
+  const _currentLanguage = req.params._currenteLanguage;
+  const _targetLanguage = req.params._targetLanguage;
 
-  const data = await api.sentanceTranslation(text, target)
+  const data = await api.sentanceTranslation(_text, _targetLanguage)
 
-  res.json(data);
+  res.json({translation: data, currentLanguage: _currentLanguage, targetLanguage: _targetLanguage});
 };
 
-exports.localSentanceTranslation = async (array) => {
+exports.localSentanceTranslation = async (array, _targetLanguage) => {
   let data = []
 
-  for(const element of array){
-    data.push(await api.sentanceTranslation(element, 'pt'))
+  for(const element of array) {
+    data.push(await api.sentanceTranslation(element, _targetLanguage))
   }
   return data
 }

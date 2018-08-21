@@ -22,5 +22,5 @@ exports.sentanceTranslation = (async (text, target) => {
         .catch(err => {
             console.error('ERROR:', err);
         });
-    return data
+    return data[0]
 })

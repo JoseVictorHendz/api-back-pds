@@ -9,7 +9,7 @@ function createClient() {
 }
  
 function imageLocation() {
-    return "./src/Apis/google-cloud-vision/images/teste2.jpg"
+    return "./src/Apis/google-cloud-vision/images/teste2.jpg" //palavra.jpg"
 }
 
 exports.labelDetection = (async () => {
@@ -59,7 +59,7 @@ exports.imageDocumentTextDetection = (async () => {
         .then(results => {
             const fullTextAnnotation = results[0].fullTextAnnotation;
 
-            data.push(fullTextAnnotation.text);
+            data.push({'text': fullTextAnnotation.text, 'language': fullTextAnnotation.pages[0].property.detectedLanguages[0].languageCode});
         })
         .catch(err => {
             console.error('ERROR:', err);

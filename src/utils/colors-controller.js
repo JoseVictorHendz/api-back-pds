@@ -1,13 +1,3 @@
-exports.parceColors = async (dataRgb) => {
-    let hexColors = []
-
-    dataRgb.forEach(element => {
-        hexColors.push(parseRGBForHex('rgb('+element.red+', '+element.green+', '+element.blue+')'))
-    });
-
-    return hexColors
-}
-
 function parseRGBForHex(rgb) {
     if (rgb.substr(0, 1) === '#') {
         return rgb;
@@ -21,3 +11,14 @@ function parseRGBForHex(rgb) {
     var rgb = blue | (green << 8) | (red << 16);
     return digits[1] + '#' + rgb.toString(16);
 }
+
+exports.parceColors = async (dataRgb) => {
+    let hexColors = []
+
+    dataRgb.forEach(element => {
+        hexColors.push(parseRGBForHex('rgb('+element.red+', '+element.green+', '+element.blue+')'))
+    });
+
+    return hexColors
+}
+
