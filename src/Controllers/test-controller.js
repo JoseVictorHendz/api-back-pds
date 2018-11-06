@@ -1,3 +1,3 @@
 exports.test = ((req, res) => {
-    res.json("test");
+    res.json({value:'working test'});
   }); 
