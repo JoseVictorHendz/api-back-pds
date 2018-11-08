@@ -5,8 +5,10 @@ exports.test = async (request, res) => {
   // const testParams = request.params
   const base64 = request.body.value
   console.log("--------------------", base64.substring(0, 10))
+  console.log("--------------------", base64)
 
-  var base64Str = "data:image/png;base64," + base64
+
+  var base64Str = "data:image/jpeg;base64," + base64
   var path ='./src/Controllers/test/';
   var optionalObj = {'fileName': Math.floor(Math.random() * 65536), 'type':'png'};
 
