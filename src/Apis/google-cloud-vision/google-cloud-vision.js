@@ -8,17 +8,17 @@ function createClient() {
     return client   
 }
  
-function imageLocation() {
-    return "./src/Apis/google-cloud-vision/images/teste2.jpg" //palavra.jpg"
+function imageLocation(imageReference) {
+    return "./src/Apis/google-cloud-vision/images/"+imageReference+".png" //palavra.jpg"
 }
 
-exports.labelDetection = (async () => {
+exports.labelDetection = (async (imageReference) => {
     const client = createClient()
 
     let data = []
 
     await client
-        .labelDetection(imageLocation())
+        .labelDetection(imageLocation(imageReference))
         .then(results => {
             const labels = results[0].labelAnnotations;
 
