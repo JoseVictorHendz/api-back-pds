@@ -40,7 +40,7 @@ function converBase64ForImage(base64) {
 
   // return optionalObj.fileName
   const imageReference = Math.floor(Math.random() * 65536)
-  fs.writeFile('./public/'+imageReference+'.png', base64, 'base64', function(err) {
+  await fs.writeFile('./public/'+imageReference+'.png', base64, 'base64', function(err) {
     if (err) next(err);
   });
   return imageReference
