@@ -2,14 +2,12 @@ const api = require('../Apis/google-cloud-vision/google-cloud-vision')
 const translate = require('./sentance-translation-controller')
 const colors = require('../utils/colors-controller')
 var base64ToImage = require('base64-to-image');
+const fs = require('fs');
 
 
 exports.imageLabelDetection = async (req, res, next) => {
-  console.log("---------1----------")
   const _targetLanguage = req.params._targetLanguage
   let data = await api.labelDetection(converBase64ForImage(req.body.value))
-  console.log("--------4-----------")
-
   data = await translate.localSentanceTranslation(data, _targetLanguage)
   console.log("------------------\n"+data+"\n----------------------")
   res.json({ value: data });
@@ -32,15 +30,18 @@ exports.imageDocumentTextDetection = async (req, res, next) => {
 
 function converBase64ForImage(base64) {
   // console.log("--------------------", base64.substring(0, 10))
-  console.log("---------2----------")
 
+  // var base64Str = "data:image/jpeg;base64," + base64
+  // var path ='./src/Apis/google-cloud-vision/images/';
+  // var optionalObj = {'fileName': Math.floor(Math.random() * 65536), 'type':'png'};
 
-  var base64Str = "data:image/jpeg;base64," + base64
-  var path ='./src/Apis/google-cloud-vision/images/';
-  var optionalObj = {'fileName': Math.floor(Math.random() * 65536), 'type':'png'};
+  // base64ToImage( base64Str, path, optionalObj); 
+  // var imageInfo = base64ToImage(base64Str,path,optionalObj);
 
-  base64ToImage( base64Str, path, optionalObj); 
-  var imageInfo = base64ToImage(base64Str,path,optionalObj);
-
-  return optionalObj.fileName
+  // return optionalObj.fileName
+  const imageReference = Math.floor(Math.random() * 65536)
+  fs.writeFile('./public/'+imageReference+'.png', base64, 'base64', function(err) {
+    if (err) next(err);
+  });
+  return imageReference
 }

@@ -9,7 +9,7 @@ function createClient() {
 }
  
 function imageLocation(imageReference) {
-    return "./src/Apis/google-cloud-vision/images/"+imageReference+".png" //palavra.jpg"
+    return "./public/"+imageReference+".png"
 }
 
 exports.labelDetection = (async (imageReference) => {
