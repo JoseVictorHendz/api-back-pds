@@ -31,7 +31,7 @@ exports.imageDocumentTextDetection = async (req, res, next) => {
 }
 
 function converBase64ForImage(base64) {
-  console.log("--------------------", base64.substring(0, 10))
+  // console.log("--------------------", base64.substring(0, 10))
   console.log("---------2----------")
 
 
