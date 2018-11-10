@@ -5,8 +5,11 @@ var base64ToImage = require('base64-to-image');
 
 
 exports.imageLabelDetection = async (req, res, next) => {
+  console.log("---------1----------")
   const _targetLanguage = req.params._targetLanguage
   let data = await api.labelDetection(converBase64ForImage(req.body.value))
+  console.log("--------4-----------")
+
   data = await translate.localSentanceTranslation(data, _targetLanguage)
   console.log("------------------\n"+data+"\n----------------------")
   res.json({ value: data });
@@ -29,6 +32,8 @@ exports.imageDocumentTextDetection = async (req, res, next) => {
 
 function converBase64ForImage(base64) {
   console.log("--------------------", base64.substring(0, 10))
+  console.log("---------2----------")
+
 
   var base64Str = "data:image/jpeg;base64," + base64
   var path ='./src/Apis/google-cloud-vision/images/';

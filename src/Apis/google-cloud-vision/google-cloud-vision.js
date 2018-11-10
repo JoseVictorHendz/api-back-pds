@@ -21,6 +21,7 @@ exports.labelDetection = (async (imageReference) => {
         .labelDetection(imageLocation(imageReference))
         .then(results => {
             const labels = results[0].labelAnnotations;
+            console.log("--------3-----------")
 
             labels.forEach(label => data.push(label.description))
         })
