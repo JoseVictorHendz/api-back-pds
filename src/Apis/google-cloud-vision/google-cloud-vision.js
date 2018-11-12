@@ -31,13 +31,13 @@ exports.labelDetection = (async (imageReference) => {
     return data
 });
 
-exports.imageProperties = (async () => {
+exports.imageProperties = (async (imageReference) => {
     const client = createClient()
 
     let data = []
 
     await client
-        .imageProperties(imageLocation())
+        .imageProperties(imageLocation(imageReference))
         .then(results => {
             const properties = results[0].imagePropertiesAnnotation;
             const colors = properties.dominantColors.colors;
@@ -50,13 +50,13 @@ exports.imageProperties = (async () => {
     return data
 })
 
-exports.imageDocumentTextDetection = (async () => {
+exports.imageDocumentTextDetection = (async (imageReference) => {
     const client = createClient()
 
     let data = []
 
     await client
-        .documentTextDetection(imageLocation())
+        .documentTextDetection(imageLocation(imageReference))
         .then(results => {
             const fullTextAnnotation = results[0].fullTextAnnotation;
 
