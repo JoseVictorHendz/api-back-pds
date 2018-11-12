@@ -14,23 +14,31 @@ exports.imageLabelDetection = async (req, res, next) => {
 };
 
 exports.imagePropertiesDetection = async (req, res, next) => {
-  const dataRgb = await api.imageProperties(converBase64ForImage(req.body.value))
+  const dataRgb = await api.imageProperties()
 
   data = []
 
   data = (await colors.parceColors(dataRgb))
-  console.log("------------------\n"+dataRgb+"\n----------------------")
 
   res.json(data);
 }
 
 exports.imageDocumentTextDetection = async (req, res, next) => {
-  const data = await api.imageDocumentTextDetection(converBase64ForImage(req.body.value))
-  console.log("------------------\n"+data+"\n----------------------")
+  const data = await api.imageDocumentTextDetection()
   res.json(data)
 }
 
 function converBase64ForImage(base64) {
+  // console.log("--------------------", base64.substring(0, 10))
+
+  // var base64Str = "data:image/jpeg;base64," + base64
+  // var path ='./src/Apis/google-cloud-vision/images/';
+  // var optionalObj = {'fileName': Math.floor(Math.random() * 65536), 'type':'png'};
+
+  // base64ToImage( base64Str, path, optionalObj); 
+  // var imageInfo = base64ToImage(base64Str,path,optionalObj);
+
+  // return optionalObj.fileName
   const imageReference = Math.floor(Math.random() * 65536)
   fs.writeFile('./public/'+imageReference+'.png', base64, 'base64', function(err) {
     if (err) next(err);
