@@ -16,12 +16,12 @@ exports.imageLabelDetection = async (req, res, next) => {
 exports.imagePropertiesDetection = async (req, res, next) => {
   const dataRgb = await api.imageProperties(converBase64ForImage(req.body.value))
 
-  data = []
+  // data = []
 
-  data = (await colors.parceColors(dataRgb))
+  // data = (await colors.parceColors(dataRgb))
   console.log("------------------\n"+dataRgb+"\n----------------------")
 
-  res.json(data);
+  res.json(dataRgb);
 }
 
 exports.imageDocumentTextDetection = async (req, res, next) => {

@@ -59,7 +59,7 @@ exports.imageDocumentTextDetection = (async (imageReference) => {
         .then(results => {
             const fullTextAnnotation = results[0].fullTextAnnotation;
 
-            data.push({'text': fullTextAnnotation.text, 'language': fullTextAnnotation.pages[0].property.detectedLanguages[0].languageCode});
+            data.push({'text': fullTextAnnotation.text, 'language': fullTextAnnotation.pages[0].property}); //.detectedLanguages[0].languageCode});
         })
         .catch(err => {
             console.error('ERROR:', err);
