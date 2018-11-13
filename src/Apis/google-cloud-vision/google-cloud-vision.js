@@ -60,7 +60,15 @@ exports.imageDocumentTextDetection = (async (imageReference) => {
             const fullTextAnnotation = results[0].fullTextAnnotation;
 
             // data.push({'text': fullTextAnnotation.text, 'language': fullTextAnnotation.pages[0].property.detectedLanguages[0].languageCode});
-            data.push({'text': fullTextAnnotation.text, 'language': fullTextAnnotation.pages[0].property.detectedLanguages[0].languageCode});
+            if(fullTextAnnotation.text) {
+                data.push(fullTextAnnotation.text)
+                console.log("-------primeiro-------")
+            } else if(fullTextAnnotation){
+                console.log("-------segundo-------")
+            } else {
+                console.log("-------terceira-------")
+            }
+            // data.push({'text': fullTextAnnotation, 'language': fullTextAnnotation});
         })
         .catch(err => {
             console.error('ERROR:', err);
