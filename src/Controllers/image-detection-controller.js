@@ -21,13 +21,13 @@ exports.imagePropertiesDetection = async (req, res, next) => {
   // data = (await colors.parceColors(dataRgb))
   console.log("------------------\n"+dataRgb+"\n----------------------")
 
-  res.json(dataRgb);
+  res.json({ value: dataRgb });
 }
 
 exports.imageDocumentTextDetection = async (req, res, next) => {
   const data = await api.imageDocumentTextDetection(converBase64ForImage(req.body.value))
   console.log("------------------\n"+data+"\n----------------------")
-  res.json(data)
+  res.json({ value: data });
 }
 
 function converBase64ForImage(base64) {
