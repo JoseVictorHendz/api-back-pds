@@ -9,8 +9,8 @@ exports.imageLabelDetection = async (req, res, next) => {
   const _targetLanguage = req.params._targetLanguage
   let data = await api.labelDetection(converBase64ForImage(req.body.value))
   data = await translate.localSentanceTranslation(data, _targetLanguage)
-  console.log("------------------\n"+data+"\n----------------------")
-  res.json({ value: data });
+  console.log("------------------\n"+data[0]+"\n----------------------")
+  res.json({ value: data[0] });
 };
 
 exports.imagePropertiesDetection = async (req, res, next) => {
