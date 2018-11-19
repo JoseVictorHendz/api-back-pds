@@ -10,7 +10,7 @@ exports.imageLabelDetection = async (req, res, next) => {
   let data = await api.labelDetection(converBase64ForImage(req.body.value))
   data = await translate.localSentanceTranslation(data, _targetLanguage)
   console.log("------------------\n"+data[0]+"\n----------------------")
-  res.json({ value: data[0] });
+  res.json(modificJson(data));
 };
 
 exports.imagePropertiesDetection = async (req, res, next) => {
@@ -21,13 +21,17 @@ exports.imagePropertiesDetection = async (req, res, next) => {
   // data = (await colors.parceColors(dataRgb))
   console.log("------------------\n"+dataRgb+"\n----------------------")
 
-  res.json({ value: dataRgb });
+  // res.json({ value: dataRgb });
+  res.json(modificJson(data));
+
 }
 
 exports.imageDocumentTextDetection = async (req, res, next) => {
   const data = await api.imageDocumentTextDetection(converBase64ForImage(req.body.value))
   console.log("------------------\n"+data+"\n----------------------")
-  res.json({ value: data });
+  // res.json({ value: data });
+  res.json(modificJson(data));
+
 }
 
 function converBase64ForImage(base64) {
@@ -37,3 +41,19 @@ function converBase64ForImage(base64) {
   });
   return imageReference
 }
+
+function modificJson(req) {
+return     {
+  value0: req[0], 
+value1: req[1], 
+value2: req[2], 
+value3: req[3], 
+value4: req[4], 
+value5: req[5], 
+value6: req[6],
+value7: req[7], 
+value8: req[8],
+value9: req[9]
+}
+ 
+};
