@@ -44,16 +44,16 @@ function converBase64ForImage(base64) {
 
 function modificJson(req) {
 return     {
-  value0: req[0], 
-value1: req[1], 
-value2: req[2], 
-value3: req[3], 
-value4: req[4], 
-value5: req[5], 
-value6: req[6],
-value7: req[7], 
-value8: req[8],
-value9: req[9]
+value0: req[0] || "voidReturn", 
+value1: req[1] || "voidReturn", 
+value2: req[2] || "voidReturn", 
+value3: req[3] || "voidReturn", 
+value4: req[4] || "voidReturn", 
+value5: req[5] || "voidReturn",
+value6: req[6] || "voidReturn",
+value7: req[7] || "voidReturn", 
+value8: req[8] || "voidReturn",
+value9: req[9] || "voidReturn"
 }
  
 };
