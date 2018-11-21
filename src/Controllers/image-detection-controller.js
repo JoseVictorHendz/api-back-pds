@@ -1,59 +1,29 @@
 const api = require('../Apis/google-cloud-vision/google-cloud-vision')
 const translate = require('./sentance-translation-controller')
-const colors = require('../utils/colors-controller')
-var base64ToImage = require('base64-to-image');
-const fs = require('fs');
+const colorsUtils = require('../utils/colors-utils')
+const jsonUtils = require('../utils/json-utils')
+const imageUtils = require('../utils/image-utils')
+
 
 
 exports.imageLabelDetection = async (req, res, next) => {
   const _targetLanguage = req.params._targetLanguage
-  let data = await api.labelDetection(converBase64ForImage(req.body.value))
+  let data = await api.labelDetection(await imageUtils.converBase64ForImage(req.body.value))
   data = await translate.localSentanceTranslation(data, _targetLanguage)
   console.log("------------------\n"+data[0]+"\n----------------------")
-  res.json(modificJson(data));
+  res.json(await jsonUtils.modificJson(data));
 };
 
 exports.imagePropertiesDetection = async (req, res, next) => {
-  const dataRgb = await api.imageProperties(converBase64ForImage(req.body.value))
-
-  // data = []
-
-  // data = (await colors.parceColors(dataRgb))
+  const dataRgb = await api.imageProperties(await imageUtils.converBase64ForImage(req.body.value))
   console.log("------------------\n"+dataRgb+"\n----------------------")
-
-  // res.json({ value: dataRgb });
-  res.json(modificJson(data));
+  const data = await colorsUtils.parseRgbForColorName(dataRgb)
+  res.json(await jsonUtils.modificJson(data));
 
 }
 
 exports.imageDocumentTextDetection = async (req, res, next) => {
-  const data = await api.imageDocumentTextDetection(converBase64ForImage(req.body.value))
+  const data = await api.imageDocumentTextDetection( await imageUtils.converBase64ForImage(req.body.value))
   console.log("------------------\n"+data+"\n----------------------")
-  // res.json({ value: data });
-  res.json(modificJson(data));
-
+  res.json(await jsonUtils.modificJson(data));
 }
-
-function converBase64ForImage(base64) {
-  const imageReference = Math.floor(Math.random() * 65536)
-  fs.writeFile('./public/'+imageReference+'.png', base64, 'base64', function(err) {
-    if (err) next(err);
-  });
-  return imageReference
-}
-
-function modificJson(req) {
-return     {
-value0: req[0] || "voidReturn", 
-value1: req[1] || "voidReturn", 
-value2: req[2] || "voidReturn", 
-value3: req[3] || "voidReturn", 
-value4: req[4] || "voidReturn", 
-value5: req[5] || "voidReturn",
-value6: req[6] || "voidReturn",
-value7: req[7] || "voidReturn", 
-value8: req[8] || "voidReturn",
-value9: req[9] || "voidReturn"
-}
- 
-};
