@@ -2,61 +2,27 @@ exports.parseRgbForColorName = async (dataRgb) => {
     let colorName = []
 
     for(const element of dataRgb) {
-        colorName.push(await identificColor(element.red, element.green, element.blue))
+        colorName.push(await fullColorHex(element.red, element.green, element.blue))
     }
 
     return colorName
 }
 
-function identificColor(r, g, b) {
-    colorName = "dsads"
-    r = 999
-    g = 1
-    b = 4
+function fullColorHex(r,g,b) {   
+    var red = rgbToHexadecimal(r);
+    var green = rgbToHexadecimal(g);
+    var blue = rgbToHexadecimal(b);
+    return red+green+blue;
+  };
 
-    if(r) {
-        colorName = "white "+r+" "+g+" "+b
+function rgbToHexadecimal(rgb) {
+    var hex = Number(rgb).toString(16);
+    if (hex.length < 2) {
+         hex = "0" + hex;
     }
-        // if() {
-    //     colorName = "black"
-    // } 
-    // if() {
-    //     colorName = "gray"
-    // } 
-    // if(r) {
-    //     colorName = "red"+r+" "+g+" "+b
-    // } 
-    // if() {
-    //     colorName = "orange"
-    // } 
-    // if() {
-    //     colorName = "yellow"
-    // } 
-    // if() {
-    //     colorName = "green"
-    // } 
-    // if() {
-    //     colorName = "blue"
-    // } 
-    // if() {
-    //     colorName = "violet"
-    // } 
-
-    // if() {
-    //     colorName = "brown"
-    // } 
-    return colorName
+    return hex;
 }
 
-/*
-white
-grey
-red
-orange
-yellow
-green
-blue
-violet
-brown
-
-*/
+// function identificColor(hexadecimal) {
+//     return colorName
+// }
