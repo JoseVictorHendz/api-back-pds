@@ -1,15 +1,15 @@
 const ntc = require('../utils/ntc')
 
 exports.parseRgbForColorName = async (dataRgb) => {
-    let colorNameUS = []
+    let colorNameEn = []
     let colorNamePtBr = []
 
     let color = ""
 
     for(const element of dataRgb) {
         color = await ntc.ntcMatch(await fullColorHex(element.red, element.green, element.blue))
-        colorNameUS.indexOf(color) < 0 ? colorNamePtBr.push(translateForPtBr(color)) : false
-        colorNameUS.push(color)
+        colorNameEn.indexOf(color) < 0 ? colorNamePtBr.push(translateForPtBr(color)) : false
+        colorNameEn.push(color)
     }
     return colorNamePtBr
 }
