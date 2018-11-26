@@ -36,7 +36,7 @@ function translateForPtBr(color) {
         case "Blue": color = "Azul"; break
         case "Yellow": color = "Amarelo"; break
         case "Violet": color = "violeta"; break
-        case "Brown": color = "Marrom"; break
+        case "Brown": color = "Preto"; break
         case "Black": color = "Preto"; break
         case "White": color = "Branco"; break
         case "Grey": color = "Cinza"; break
